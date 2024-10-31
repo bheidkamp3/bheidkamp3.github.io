@@ -1,1 +1,114 @@
-Hello World
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Condo Board Vote Information</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 20px;
+            background-color: #f4f4f4;
+        }
+        header {
+            background: #007BFF;
+            color: #fff;
+            padding: 10px 0;
+            text-align: center;
+        }
+        h1, h2 {
+            margin: 0;
+        }
+        .container {
+            max-width: 800px;
+            margin: auto;
+            background: white;
+            padding: 20px;
+            border-radius: 5px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+        .button {
+            background: #28a745;
+            color: white;
+            padding: 10px 15px;
+            text-align: center;
+            text-decoration: none;
+            border-radius: 5px;
+            display: inline-block;
+            margin: 20px 0;
+        }
+        .accordion {
+            background: #f1f1f1;
+            border: solid 1px #ccc;
+            margin-bottom: 10px;
+        }
+        .accordion-header {
+            cursor: pointer;
+            padding: 15px;
+            text-align: left;
+            font-weight: bold;
+        }
+        .accordion-content {
+            padding: 15px;
+            display: none;
+            overflow: hidden;
+            background: #fff;
+        }
+    </style>
+</head>
+<body>
+
+<header>
+    <h1>Vote to Replace Condo Board</h1>
+</header>
+
+<div class="container">
+    <p>Join us in shaping the future of our community. Your voice matters!</p>
+
+    <a href="#vote" class="button">Vote Now!</a>
+
+    <h2>Current State</h2>
+    <p>We are in the process of transitioning to a new condo board. This is an important step towards improving our community's management and responsiveness.</p>
+
+    <h2>Voting Timeline</h2>
+    <ul>
+        <li>Announcement Date: [Insert Date]</li>
+        <li>Voting Period: [Insert Start Date] to [Insert End Date]</li>
+        <li>Results Announcement: [Insert Date]</li>
+    </ul>
+
+    <h2>Documents</h2>
+    <div class="accordion">
+        <div class="accordion-header">View Documents <i class="fas fa-chevron-down"></i></div>
+        <div class="accordion-content">
+            <ul>
+                <li><a href="link-to-doc1.pdf">Document 1</a></li>
+                <li><a href="link-to-doc2.pdf">Document 2</a></li>
+            </ul>
+        </div>
+    </div>
+
+    <h2>Application Details</h2>
+    <div class="accordion">
+        <div class="accordion-header">View Application Details <i class="fas fa-chevron-down"></i></div>
+        <div class="accordion-content">
+            <p>Details regarding the application process will be updated here. Stay tuned!</p>
+        </div>
+    </div>
+</div>
+
+<script>
+    const accHeaders = document.querySelectorAll('.accordion-header');
+    accHeaders.forEach(header => {
+        header.addEventListener('click', () => {
+            header.classList.toggle('active');
+            const content = header.nextElementSibling;
+            content.style.display = content.style.display === "block" ? "none" : "block";
+        });
+    });
+</script>
+
+</body>
+</html>
