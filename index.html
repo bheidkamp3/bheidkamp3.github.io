@@ -1,90 +1,716 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="Content-Security-Policy" content="default-src * 'unsafe-inline' 'unsafe-eval'; script-src * 'unsafe-inline' 'unsafe-eval'; connect-src * 'unsafe-inline'; img-src * data: blob: 'unsafe-inline'; frame-src *; style-src * 'unsafe-inline';">
-    <title>Climbing Wrapped</title>
-    
-    <!-- CSS Dependencies -->
-    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css">
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/nouislider@14.6.3/distribute/nouislider.min.css">
-    <link rel="stylesheet" href="styles.css">
-    
-    <!-- JavaScript Dependencies -->
-    <script src="https://d3js.org/d3.v7.min.js"></script>
-    <script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/papaparse@5.3.0/papaparse.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/nouislider@14.6.3/distribute/nouislider.min.js"></script>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>OSS FILE NO. 4471-E — CLASSIFIED</title>
+
+  <!-- Reveal.js -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/reveal.js@5.1.0/dist/reveal.css" />
+
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Special+Elite&family=Oswald:wght@600;700;900&display=swap" rel="stylesheet" />
+
+  <!-- Custom theme -->
+  <link rel="stylesheet" href="assets/css/custom.css" />
 </head>
 <body>
-    <div class="dashboard">
-        <header>
-            <h1>Climbing Wrapped</h1>
-        </header>
 
-        <div class="csv-input">
-            <div class="csv-instructions">
-                <p>Download your mountain project csv and paste here.</p>
-                <a href="https://www.mountainproject.com/user/200796563/bobby-heidkamp/ticks" target="_blank" class="mp-link">https://www.mountainproject.com/user/200796563/bobby-heidkamp/ticks</a>
-            </div>
-            <textarea id="csvInput" placeholder="paste your mountain project csv here and click generate dashboard..."></textarea>
-            <button id="regenerateBtn" class="regenerate-btn">Generate Dashboard</button>
+<div class="reveal">
+  <div class="slides">
+
+    <!-- ============================================================
+         SLIDE 0 — TITLE
+         ============================================================ -->
+    <section data-background-color="#080806">
+      <div class="doc-header">
+        <span>TOP SECRET // DECLASSIFIED PER E.O. 13526</span>
+        <span class="dim">OSS FILE NO. 4471-E &nbsp;|&nbsp; PAGE 1 OF 11</span>
+      </div>
+
+      <div class="title-slide-inner">
+        <div class="title-content">
+          <div class="title-main">
+            Amelia Earhart:<br/>OSS Spy Captured
+          </div>
+          <div class="title-sub">
+            Confidential Debrief for Raquel Zanoni<br/>and Privileged Company
+          </div>
+          <div class="title-stamps">
+            <span class="stamp stamp-lg">TOP SECRET</span>
+            <span class="stamp stamp-sm" style="transform:rotate(5deg);">DECLASSIFIED</span>
+          </div>
+          <div class="title-ref">
+            OSS File No. 4471-E &nbsp;|&nbsp; Eyes Only<br/>
+            Classification Authority: Director, OSS Pacific Division<br/>
+            Declassified: [REDACTED] &nbsp;|&nbsp; Per E.O. 13526
+          </div>
+          <div class="title-date">1937 &mdash; Present &nbsp;&nbsp; [ Case Open ]</div>
         </div>
 
-        <div class="date-filter">
-            <div class="date-inputs">
-                <div class="date-input-group">
-                    <label for="startDate">Start Date:</label>
-                    <input type="date" id="startDate" class="date-input">
+        <div class="title-photo-col">
+          <!-- Amelia Earhart, 1935 — public domain, Wikimedia Commons -->
+          <img
+            src="https://upload.wikimedia.org/wikipedia/commons/d/d2/Amelia_Earhart_1935.jpg"
+            alt="Subject: Amelia Mary Earhart — OSS Asset [CLASSIFIED]"
+          />
+        </div>
+      </div>
+
+      <div class="doc-footer">
+        <span>TOP SECRET // NOFORN // EYES ONLY</span>
+        <span class="dim">CONFIDENTIAL DEBRIEF &mdash; AUTHORIZED RECIPIENTS ONLY</span>
+      </div>
+
+      <aside class="notes">
+        Set the scene. Play it completely straight. This is a real intelligence briefing. No jokes. No winking. Every word in this document represents decades of classified work. We begin.
+      </aside>
+    </section>
+
+
+    <!-- ============================================================
+         SLIDE 1 — SUBJECT BACKGROUND
+         ============================================================ -->
+    <section data-background-color="#080806">
+      <div class="doc-header">
+        <span>TOP SECRET // DECLASSIFIED PER E.O. 13526</span>
+        <span class="dim">OSS FILE NO. 4471-E &nbsp;|&nbsp; PAGE 2 OF 11</span>
+      </div>
+
+      <div class="slide-inner">
+        <div class="section-title">Subject Background &mdash; Dossier Entry</div>
+        <div class="meta-line">OSS FILE 4471-E &nbsp;|&nbsp; SUBJECT IDENTIFICATION &nbsp;|&nbsp; PREPARED: APRIL 1936</div>
+
+        <div class="two-col" style="grid-template-columns: 230px 1fr;">
+          <div class="photo-frame">
+            <!-- Earhart with Lockheed Electra — public domain, Wikimedia Commons -->
+            <img
+              src="https://upload.wikimedia.org/wikipedia/commons/b/b2/Amelia_Earhart_standing_under_nose_of_her_Lockheed_Model_10-E_Electra%2C_small.jpg"
+              alt="Subject with Lockheed Electra 10E, NR16020"
+              onerror="this.src='https://upload.wikimedia.org/wikipedia/commons/d/d2/Amelia_Earhart_1935.jpg'"
+            />
+            <div class="photo-label">Subject &mdash; NR16020 &mdash; [CLASSIFIED ARCHIVE]</div>
+          </div>
+
+          <div class="dossier">
+            <div class="dossier-field">
+              <span class="dossier-label">Full Name</span>
+              <span class="dossier-value">Amelia Mary Earhart</span>
+            </div>
+            <div class="dossier-field">
+              <span class="dossier-label">Date of Birth</span>
+              <span class="dossier-value">July 24, 1897 &mdash; Atchison, Kansas</span>
+            </div>
+            <div class="dossier-field">
+              <span class="dossier-label">Known For</span>
+              <span class="dossier-value">First woman to fly solo across the Atlantic Ocean (1932); first person to fly solo from Hawaii to U.S. mainland (1935)</span>
+            </div>
+            <div class="dossier-field">
+              <span class="dossier-label">Notable Behavior</span>
+              <span class="dossier-value">Refused to carry a parachute on record flights. Self-funded all aircraft modifications. Maintained personal flight diary of every sortie.</span>
+            </div>
+            <div class="dossier-field">
+              <span class="dossier-label">Official Account</span>
+              <span class="dossier-value">Vanished July 2, 1937 &mdash; central Pacific Ocean. Last known position: vicinity of Howland Island. U.S. Navy search: inconclusive.</span>
+            </div>
+            <div class="dossier-field">
+              <span class="dossier-label">Legal Status</span>
+              <span class="dossier-value">Declared legally dead January 5, 1939. <span class="stamp stamp-inline">FILE REMAINS OPEN</span></span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="doc-footer">
+        <span>TOP SECRET // NOFORN // EYES ONLY</span>
+        <span class="dim">OSS FILE NO. 4471-E &mdash; SUBJECT DOSSIER</span>
+      </div>
+
+      <aside class="notes">
+        Establish the subject. Note her competence. These are the publicly known facts &mdash; everything the government chose to release. A woman this skilled, this methodical, this careful &mdash; she doesn't just vanish.
+      </aside>
+    </section>
+
+
+    <!-- ============================================================
+         SLIDE 2 — CAPABILITY ASSESSMENT
+         ============================================================ -->
+    <section data-background-color="#080806">
+      <div class="doc-header">
+        <span>TOP SECRET // DECLASSIFIED PER E.O. 13526</span>
+        <span class="dim">OSS FILE NO. 4471-E &nbsp;|&nbsp; PAGE 3 OF 11</span>
+      </div>
+
+      <div class="slide-inner">
+        <div class="section-title">
+          Subject Capability Assessment
+          <span class="exhibit-label" style="float:right; margin-top:-2px;">EXHIBIT A</span>
+        </div>
+        <div class="meta-line">Cross-referenced against AAC Records 1932&ndash;1937 &nbsp;|&nbsp; Assessment Officer: [REDACTED]</div>
+
+        <ul class="record-list">
+          <li>Solo Atlantic crossing, 1932 &mdash; <strong>2,026 miles in 14 hours, 56 minutes.</strong> First woman. Third person total.</li>
+          <li>Solo Hawaii&ndash;U.S. mainland flight, 1935 &mdash; route previously completed by no solo aviator, male or female.</li>
+          <li>Logged over <strong>1,000 flight hours</strong> by the time of the 1937 mission. Expert in long-range navigation and dead reckoning.</li>
+          <li>Held multiple airspeed and altitude records recognized by the F&eacute;d&eacute;ration A&eacute;ronautique Internationale.</li>
+          <li>Trained under military-grade instruction; demonstrated advanced proficiency in both celestial and radio navigation.</li>
+          <li>Described by peer aviators and Army Air Corps evaluators as <em>"unnaturally calm under pressure."</em></li>
+        </ul>
+
+        <div class="intel-quote">
+          "She did not make mistakes in the air. Not those kinds of mistakes. Whatever happened to Earhart, it was not a navigation error."
+          <span class="source">&mdash; <span class="redact redact-wide"></span>, U.S. Army Air Corps, 1938 &nbsp;[IDENTITY WITHHELD PER 50 U.S.C. &sect; 3141]</span>
+        </div>
+
+        <div class="conclusion">
+          <strong>Conclusion:</strong> The standard disappearance account is inconsistent with the subject's documented capabilities. Pilot error is not a credible hypothesis. Alternative explanations must be considered.
+        </div>
+      </div>
+
+      <div class="doc-footer">
+        <span>TOP SECRET // NOFORN // EYES ONLY</span>
+        <span class="dim">EXHIBIT A &mdash; CAPABILITY ASSESSMENT</span>
+      </div>
+
+      <aside class="notes">
+        This is where you build doubt about the official story. She was too skilled, too experienced, too precise for a simple navigation error over the Pacific. The Army Air Corps knew it. The OSS knew it.
+      </aside>
+    </section>
+
+
+    <!-- ============================================================
+         SLIDE 3 — THE AIRCRAFT
+         ============================================================ -->
+    <section data-background-color="#080806">
+      <div class="doc-header">
+        <span>TOP SECRET // DECLASSIFIED PER E.O. 13526</span>
+        <span class="dim">OSS FILE NO. 4471-E &nbsp;|&nbsp; PAGE 4 OF 11</span>
+      </div>
+
+      <div class="slide-inner">
+        <div class="section-title">
+          Aircraft Assessment &mdash; Lockheed Electra 10E
+          <span class="exhibit-label" style="float:right; margin-top:-2px;">EXHIBIT B &mdash; RESTRICTED</span>
+        </div>
+        <div class="meta-line">Serial NR16020 &nbsp;|&nbsp; Modifications catalogued per OSS Technical Division, 1936</div>
+
+        <div class="two-col" style="grid-template-columns: 1fr 1fr; gap: 24px; align-items: start;">
+          <div class="photo-frame">
+            <img
+              src="https://upload.wikimedia.org/wikipedia/commons/2/25/Lockheed_10-E_NR-16020_%284476848192%29.jpg"
+              alt="Lockheed Electra 10E, NR16020 — Earhart's actual aircraft"
+              onerror="this.src='https://upload.wikimedia.org/wikipedia/commons/3/36/Earhart-electra_10.jpg'"
+              style="height:240px; object-fit:cover; width:100%;"
+            />
+            <div class="photo-label">NR16020 &mdash; Lockheed Electra 10E &mdash; [RESTRICTED]</div>
+          </div>
+
+          <div class="dossier" style="font-size:0.8em;">
+            <div class="dossier-field">
+              <span class="dossier-label">Designation</span>
+              <span class="dossier-value">Lockheed Model 10-E Electra</span>
+            </div>
+            <div class="dossier-field">
+              <span class="dossier-label">Serial / Reg.</span>
+              <span class="dossier-value">NR16020</span>
+            </div>
+            <div class="dossier-field">
+              <span class="dossier-label">Engines</span>
+              <span class="dossier-value">Twin Pratt &amp; Whitney R-1340, 550 hp each</span>
+            </div>
+            <div class="dossier-field">
+              <span class="dossier-label">Range</span>
+              <span class="dossier-value"><strong>~4,000 miles</strong> &mdash; sufficient to photograph the Marshall Islands en route</span>
+            </div>
+            <div class="dossier-field">
+              <span class="dossier-label">Public Description</span>
+              <span class="dossier-value">Civilian aircraft, modified for long-range circumnavigation flight</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="conclusion" style="margin-top:12px;">
+          <strong class="text-red">[DECLASSIFIED NOTE]</strong> &nbsp; Aircraft NR16020 was equipped with aerial reconnaissance cameras of the type used in OSS-coordinated intelligence overflights of the Pacific theater. Camera mounts were installed in the modified ventral fuselage section. These modifications were removed from all public photographs prior to press release. The stated civilian purpose of the flight provided operational cover.
+        </div>
+      </div>
+
+      <div class="doc-footer">
+        <span>TOP SECRET // NOFORN // EYES ONLY</span>
+        <span class="dim">EXHIBIT B &mdash; AIRCRAFT TECHNICAL ASSESSMENT</span>
+      </div>
+
+      <aside class="notes">
+        The plane wasn't just a plane. A reconnaissance camera on a civilian aircraft in 1937 is not a modification you make for a world record attempt. This was mission equipment.
+      </aside>
+    </section>
+
+
+    <!-- ============================================================
+         SLIDE 4 — THE OSS CONNECTION
+         ============================================================ -->
+    <section data-background-color="#080806">
+      <div class="doc-header">
+        <span>TOP SECRET // DECLASSIFIED PER E.O. 13526</span>
+        <span class="dim">OSS FILE NO. 4471-E &nbsp;|&nbsp; PAGE 5 OF 11</span>
+      </div>
+
+      <div class="slide-inner" style="padding-top:16px;">
+        <div class="oss-memo">
+          <div class="stamp-watermark">CLASSIFIED</div>
+
+          <div class="oss-memo-header">
+            Office of Strategic Services<br/>
+            Internal Memorandum &mdash; [Declassified]<br/>
+            <span style="font-size:0.82em; font-weight:normal; letter-spacing:0.05em;">OSS MEMO 1936-PX-229 &nbsp;|&nbsp; EYES ONLY &nbsp;|&nbsp; DESTROY AFTER READING</span>
+          </div>
+
+          <div class="oss-memo-meta">
+            <span class="label">Date:</span>
+            <span><span class="redact redact-narrow"></span>, 1936</span>
+
+            <span class="label">To:</span>
+            <span><span class="redact redact-wide"></span>, Director, Pacific Operations</span>
+
+            <span class="label">From:</span>
+            <span><span class="redact redact-med"></span>, Office of the Director</span>
+
+            <span class="label">Subject:</span>
+            <span>Asset Recruitment &mdash; Code Name [REDACTED] &mdash; Pacific Reconnaissance</span>
+          </div>
+
+          <div class="oss-memo-body on-paper">
+            <p>This memorandum confirms the formal recruitment of civilian aviation asset [REDACTED] for purposes of Pacific theater reconnaissance overflights. Asset has agreed to operational tasking under the cover of a proposed round-the-world circumnavigation flight.</p>
+
+            <p>The OSS &mdash; which attendees of this briefing will recognize as the organization that would later be reorganized into the Central Intelligence Agency &mdash; was at this time conducting intelligence-gathering operations across Japanese-controlled Pacific island territories, including the Marshall Islands, Saipan, and adjoining maritime zones.</p>
+
+            <span class="oss-memo-redact-line long"></span>
+            <span class="oss-memo-redact-line medium"></span>
+            <span class="oss-memo-redact-line long"></span>
+
+            <p>Asset's proposed route passes directly over the Marshall Islands during the Pacific leg of the circumnavigation. Photographic equipment has been installed in aircraft serial NR16020 per Technical Division specifications dated <span class="redact redact-narrow"></span>. Asset briefed on mission parameters on <span class="redact redact-narrow"></span>.</p>
+
+            <span class="oss-memo-redact-line short"></span>
+            <span class="oss-memo-redact-line medium"></span>
+          </div>
+
+          <div class="oss-memo-footer">
+            [THIS SECTION DECLASSIFIED 2003 &mdash; SOME PORTIONS WITHHELD PER 50 U.S.C. &sect; 3141]
+          </div>
+
+          <div class="stamp" style="position:absolute; top:14px; right:18px; transform:rotate(-10deg);">TOP SECRET</div>
+        </div>
+      </div>
+
+      <div class="doc-footer">
+        <span>TOP SECRET // NOFORN // EYES ONLY</span>
+        <span class="dim">OSS MEMO 1936-PX-229 &mdash; RECRUITMENT AUTHORIZATION</span>
+      </div>
+
+      <aside class="notes">
+        The OSS was running Pacific theater intelligence operations years before Pearl Harbor. This flight was one of them. The OSS, which became the CIA. Let that land.
+      </aside>
+    </section>
+
+
+    <!-- ============================================================
+         SLIDE 5 — EVIDENCE
+         ============================================================ -->
+    <section data-background-color="#080806">
+      <div class="doc-header">
+        <span>TOP SECRET // DECLASSIFIED PER E.O. 13526</span>
+        <span class="dim">OSS FILE NO. 4471-E &nbsp;|&nbsp; PAGE 6 OF 11</span>
+      </div>
+
+      <div class="slide-inner">
+        <div class="section-title">
+          Corroborating Intelligence
+          <span class="exhibit-label" style="float:right; margin-top:-2px;">EXHIBIT C</span>
+        </div>
+        <div class="meta-line">Three independent sources. Cross-referenced and authenticated. Classification level: TOP SECRET.</div>
+
+        <div class="three-panels">
+
+          <!-- Panel 1: Radio Intercept -->
+          <div class="transmission" style="position:relative;">
+            <div class="transmission-header">
+              Intercepted Radio Transmission<br/>
+              Wake Island Monitoring Station
+            </div>
+            <div class="transmission-body">DATE: 02 JUL 1937
+TIME: 0843 HRS
+SOURCE: [REDACTED]
+STATION: WAKE ISLAND
+
+FRAGMENT:
+"...not on course...
+engine two... [REDACTED]...
+they're here... do not&mdash;"
+
+[SIGNAL LOST &mdash; 0844 HRS]
+
+END INTERCEPT</div>
+            <div style="margin-top:10px; font-family:'Special Elite',monospace; font-size:0.72em; color:#5a8a5a; letter-spacing:0.1em; text-transform:uppercase; border-top:1px solid #2a4a2a; padding-top:6px;">
+              Classification: TOP SECRET<br/>
+              Auth: [REDACTED] / NSA Precursor
+            </div>
+          </div>
+
+          <!-- Panel 2: Japanese Navy Log -->
+          <div class="patrol-log">
+            <div class="patrol-log-header">
+              Imperial Japanese Navy<br/>Patrol Log &mdash; Translation
+            </div>
+            <div class="stamp" style="position:absolute; top:6px; right:6px; font-size:0.5em; transform:rotate(-14deg); border-width:2px; padding:1px 5px; color:#8b0000; border-color:#8b0000;">TRANSLATED</div>
+
+            <div><strong>2 July 1937 | Marshall Islands Sector</strong></div>
+
+            <div style="margin-top:8px; line-height:1.65;">
+              Aircraft of American registration recovered, grid reference <span class="redact redact-narrow" style="background:#1a1208; border-color:#1a1208;"></span>. One occupant alive. Second occupant: <span class="redact redact-narrow" style="background:#1a1208; border-color:#1a1208;"></span>.
+            </div>
+            <div style="margin-top:6px; line-height:1.65;">
+              Transferred to <span class="redact" style="background:#1a1208; border-color:#1a1208; min-width:100px;"></span> per standing orders. Cargo confiscated: <span class="redact" style="background:#1a1208; border-color:#1a1208; min-width:110px;">[PHOTOGRAPHY EQUIPMENT]</span>.
+            </div>
+            <div style="margin-top:8px; font-size:0.78em; color:#5a4820; border-top:1px dotted #9a8040; padding-top:6px; letter-spacing:0.06em; text-transform:uppercase;">
+              Trans. ref: MAGIC-1937-JP-0447<br/>
+              Authenticated: [REDACTED]
+            </div>
+          </div>
+
+          <!-- Panel 3: History.com Article Mock -->
+          <div class="article-mock-wrapper">
+            <div class="article-mock">
+              <div class="article-mock-browser">
+                <div class="browser-dot red"></div>
+                <div class="browser-dot amber"></div>
+                <div class="browser-dot green"></div>
+                <div class="browser-url">web.archive.org &mdash; history.com/articles/new-book-claims-amelia-earhart-was-a-spy-captured-by-japan</div>
+              </div>
+              <div class="article-body-area">
+                <div class="article-site-name">History</div>
+                <div class="article-headline">New Book Claims Amelia Earhart Was a Spy Captured by Japan</div>
+                <div class="article-byline">By Sarah Pruitt &nbsp;|&nbsp; Updated: Aug 15, 2023</div>
+                <div class="article-excerpt">
+                  A new book asserts that Amelia Earhart was working as a spy for the U.S. government when she disappeared over the Pacific in 1937, and that she was captured by Japanese forces in the Marshall Islands. The theory holds that Earhart's round-the-world flight was cover for a reconnaissance mission over Japanese-controlled Pacific territories...
                 </div>
-                <div class="date-input-group">
-                    <label for="endDate">End Date:</label>
-                    <input type="date" id="endDate" class="date-input">
-                </div>
+              </div>
             </div>
+            <span class="article-caption">[Source: History.com &mdash; Corroborating Open-Source Intelligence]</span>
+          </div>
+
+        </div>
+      </div>
+
+      <div class="doc-footer">
+        <span>TOP SECRET // NOFORN // EYES ONLY</span>
+        <span class="dim">EXHIBIT C &mdash; THREE INDEPENDENT CORROBORATING SOURCES</span>
+      </div>
+
+      <aside class="notes">
+        Three independent sources pointing to the same conclusion. A radio intercept. A Japanese military patrol log. Published historical research from a mainstream source. They did not emerge from the same intelligence stream. They corroborate each other independently.
+      </aside>
+    </section>
+
+
+    <!-- ============================================================
+         SLIDE 6 — VIDEO EVIDENCE
+         ============================================================ -->
+    <section data-background-color="#060604">
+      <div class="doc-header">
+        <span>TOP SECRET // DECLASSIFIED PER E.O. 13526</span>
+        <span class="dim">OSS FILE NO. 4471-E &nbsp;|&nbsp; PAGE 7 OF 11</span>
+      </div>
+
+      <div class="slide-inner">
+        <div class="section-title">
+          Recovered Footage &mdash; Subject's Final Known Flights
+          <span class="exhibit-label" style="float:right; margin-top:-2px;">EXHIBIT D</span>
+        </div>
+        <div class="meta-line">Archived footage authenticated by OSS Technical Division. Note aircraft configuration in both records.</div>
+
+        <div class="video-container">
+          <!-- Video 1 -->
+          <div class="video-card">
+            <div class="video-card-label">
+              &#9654; &nbsp; CLASSIFIED ARCHIVE &mdash; RECOVERED FOOTAGE &mdash; REF: OSS-AE-VID-01
+            </div>
+            <div class="video-embed-area">
+              <iframe
+                data-src="https://www.youtube.com/embed/EWt4wAuktvI?rel=0&modestbranding=1&color=white"
+                allow="autoplay; encrypted-media"
+                allowfullscreen
+                title="Amelia Earhart &mdash; Recovered Footage Record 01"
+              ></iframe>
+            </div>
+            <div class="video-ref">
+              Subject's last documented flights before disappearance. Note the aircraft configuration.
+            </div>
+          </div>
+
+          <!-- Video 2 -->
+          <div class="video-card">
+            <div class="video-card-label">
+              &#9654; &nbsp; CLASSIFIED ARCHIVE &mdash; RECOVERED FOOTAGE &mdash; REF: OSS-AE-VID-02
+            </div>
+            <div class="video-embed-area">
+              <iframe
+                data-src="https://www.youtube.com/embed/KPrBgNXpV7w?rel=0&modestbranding=1&color=white"
+                allow="autoplay; encrypted-media"
+                allowfullscreen
+                title="Amelia Earhart &mdash; Recovered Footage Record 02"
+              ></iframe>
+            </div>
+            <div class="video-ref">
+              Preflight preparations, 1937. The last time subject appeared in publicly available record.
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="doc-footer">
+        <span>TOP SECRET // NOFORN // EYES ONLY</span>
+        <span class="dim">EXHIBIT D &mdash; RECOVERED FOOTAGE &mdash; OSS-AE-VID-01 / OSS-AE-VID-02</span>
+      </div>
+
+      <aside class="notes">
+        Let the video breathe. Real footage. Real pilot. Real mission.
+      </aside>
+    </section>
+
+
+    <!-- ============================================================
+         SLIDE 7 — THE CAPTURE
+         ============================================================ -->
+    <section data-background-color="#06060a">
+      <div class="doc-header">
+        <span>TOP SECRET // DECLASSIFIED PER E.O. 13526</span>
+        <span class="dim">OSS FILE NO. 4471-E &nbsp;|&nbsp; PAGE 8 OF 11</span>
+      </div>
+
+      <div class="slide-inner">
+        <div class="section-title">The Capture &mdash; 2 July 1937</div>
+        <div class="meta-line">Event timeline reconstructed from intercept records, patrol logs, and [REDACTED] human intelligence sources</div>
+
+        <div class="capture-event">
+          <div class="capture-event-line">
+            <span class="capture-event-label">0712 hrs</span>
+            <span>Subject departs Lae, New Guinea. Filed flight plan: Howland Island. Actual operational route: Howland Island via Marshall Islands.</span>
+          </div>
+          <div class="capture-event-line">
+            <span class="capture-event-label">0843 hrs</span>
+            <span>Last intercepted radio transmission. Signal lost mid-transmission. Wake Island monitoring station confirms last known position: vicinity of Marshall Islands &mdash; then under Japanese Imperial mandate.</span>
+          </div>
+          <div class="capture-event-line">
+            <span class="capture-event-label">~0900 hrs</span>
+            <span>Aircraft NR16020 intercepted by Japanese Imperial Navy patrol. Reconnaissance equipment aboard the Electra confirmed active mission status.</span>
+          </div>
+          <div class="capture-event-line">
+            <span class="capture-event-label">Disposition</span>
+            <span>Subject taken into custody. Classified: prisoner of intelligence interest. Geneva protections not invoked. Co-pilot Fred Noonan &mdash; fate <span class="redact redact-narrow"></span>.</span>
+          </div>
         </div>
 
-        <div class="dashboard-grid">
-            <div class="dashboard-item">
-                <h3>Total Routes Summary</h3>
-                <div class="stats-container" id="totalStats"></div>
-            </div>
+        <div class="id-report">
+          <div class="id-report-header">Imperial Japanese Navy &mdash; Subject Identification Report [Translation]</div>
+          <div class="id-field">
+            <span class="label">Nationality</span>
+            <span>American national</span>
+          </div>
+          <div class="id-field">
+            <span class="label">Description</span>
+            <span>Female. Civilian dress. Pilot.</span>
+          </div>
+          <div class="id-field">
+            <span class="label">Intel Classification</span>
+            <span><strong>PROBABLE ASSET</strong></span>
+          </div>
+          <div class="id-field">
+            <span class="label">Disposition</span>
+            <span>Detain and interrogate. Transfer to <span class="redact" style="background:#1a1208; border-color:#1a1208; min-width:110px;"></span> per standing orders.</span>
+          </div>
+          <div class="stamp" style="position:absolute; bottom:10px; right:12px; transform:rotate(-8deg); font-size:0.72em;">CONFIDENTIAL</div>
+        </div>
+      </div>
 
-            <div class="dashboard-item">
-                <h3>Grade Distribution</h3>
-                <canvas id="gradeChart"></canvas>
-            </div>
+      <div class="doc-footer">
+        <span>TOP SECRET // NOFORN // EYES ONLY</span>
+        <span class="dim">EVENT TIMELINE &mdash; 2 JULY 1937 &mdash; RECONSTRUCTION FROM CLASSIFIED SOURCES</span>
+      </div>
 
-            <div class="dashboard-item full-width">
-                <h3>Geographic Distribution</h3>
-                <div id="map"></div>
-            </div>
+      <aside class="notes">
+        This is where the official story ends and the classified file begins. Everything after this point has been redacted from public record for 87 years. Until now.
+      </aside>
+    </section>
 
-            <div class="dashboard-item full-width">
-                <h3>Climbing Journal</h3>
-                <div class="journal-container" id="journalContainer"></div>
-            </div>
 
-            <div class="dashboard-item full-width">
-                <h3>Crags Climbed</h3>
-                <div class="crags-container" id="cragsContainer"></div>
-            </div>
+    <!-- ============================================================
+         SLIDE 8 — LIFE AFTER CAPTURE
+         ============================================================ -->
+    <section data-background-color="#0d0b07">
+      <div class="doc-header">
+        <span>TOP SECRET // DECLASSIFIED PER E.O. 13526</span>
+        <span class="dim">OSS FILE NO. 4471-E &nbsp;|&nbsp; PAGE 9 OF 11</span>
+      </div>
+
+      <div class="slide-inner">
+        <div class="section-title">Post-Capture Welfare Assessment</div>
+        <div class="meta-line">OSS / CIA Welfare File: Declassified fragments &nbsp;|&nbsp; Compiled 1940s&ndash;1980s &nbsp;|&nbsp; Location: [REDACTED], Rural Japan</div>
+
+        <ul class="bullet-list">
+          <li>Initial detention: <span class="redact redact-med"></span>, rural Japan. Conditions described in earliest welfare reports as &mdash; austere but non-punitive.</li>
+          <li>Over the following decade, subject's official classification shifted from <em>prisoner</em> to what internal records describe as <em>"protected guest."</em> No further interrogation beyond the initial period.</li>
+          <li>Subject was never repatriated. The U.S. government officially listed her as dead in January 1939 &mdash; <strong>without body, without wreckage, without confirmation.</strong></li>
+          <li>Declassified welfare reports (1940s&ndash;1950s) indicate: subject in good physical health, residing in rural Japan. Location: <span class="redact redact-wide"></span>.</li>
+          <li>Subject formed significant personal bonds with individuals in the community of her captivity &mdash; a psychological response now documented and recognized in clinical literature as <strong>Stockholm Syndrome.</strong></li>
+          <li>She reportedly made no attempt to contact American authorities. No attempt to leave. By the late 1940s, there is no indication she wished to.</li>
+        </ul>
+
+        <div class="intel-quote" style="margin-top:12px;">
+          "The subject's situation had, by that point, ceased to be one of captivity in any meaningful operational sense. She had built a life."
+          <span class="source">&mdash; CIA Welfare File Notation, approx. 1958 &nbsp;|&nbsp; Author: <span class="redact redact-med" style="vertical-align:middle;"></span></span>
+        </div>
+      </div>
+
+      <div class="doc-footer">
+        <span>TOP SECRET // NOFORN // EYES ONLY</span>
+        <span class="dim">POST-CAPTURE WELFARE FILE &mdash; RURAL JAPAN &mdash; LOCATION CLASSIFIED</span>
+      </div>
+
+      <aside class="notes">
+        This is the most human part of the story. She adapted. She survived. She chose to stay, in the end. Whether that choice was entirely free &mdash; that is a question this file does not attempt to answer.
+      </aside>
+    </section>
+
+
+    <!-- ============================================================
+         SLIDE 9 — END OF LIFE ASSESSMENT
+         ============================================================ -->
+    <section data-background-color="#080806">
+      <div class="doc-header">
+        <span>TOP SECRET // DECLASSIFIED PER E.O. 13526</span>
+        <span class="dim">OSS FILE NO. 4471-E &nbsp;|&nbsp; PAGE 10 OF 11</span>
+      </div>
+
+      <div class="slide-inner">
+        <div class="section-title">Case File &mdash; Final Entry</div>
+        <div class="meta-line">End of Life Assessment &nbsp;|&nbsp; Compiled from [REDACTED] human intelligence sources &nbsp;|&nbsp; Final review: CIA, approx. 1994</div>
+
+        <div class="dossier" style="margin-top:8px;">
+          <div class="dossier-field">
+            <span class="dossier-label">Last Intel Contact</span>
+            <span class="dossier-value"><span class="redact redact-med"></span>, circa 1980s. Subject confirmed alive. Health: good.</span>
+          </div>
+          <div class="dossier-field">
+            <span class="dossier-label">Estimated Death</span>
+            <span class="dossier-value"><strong>Approximately 1994</strong></span>
+          </div>
+          <div class="dossier-field">
+            <span class="dossier-label">Age at Death</span>
+            <span class="dossier-value"><strong>97 years old</strong></span>
+          </div>
+          <div class="dossier-field">
+            <span class="dossier-label">Cause of Death</span>
+            <span class="dossier-value">Natural causes. Consistent with peaceful end of life. No trauma indicators.</span>
+          </div>
+          <div class="dossier-field">
+            <span class="dossier-label">Location</span>
+            <span class="dossier-value">Rural Japan &mdash; specific prefecture <span class="redact redact-med"></span></span>
+          </div>
+          <div class="dossier-field">
+            <span class="dossier-label">Burial Record</span>
+            <span class="dossier-value">No public burial record. No U.S. gravestone. No death certificate in American records.</span>
+          </div>
+          <div class="dossier-field">
+            <span class="dossier-label">Official Status</span>
+            <span class="dossier-value">Legally dead since 1939, per U.S. records. Actual death: 1994. Discrepancy of <strong>55 years.</strong></span>
+          </div>
         </div>
 
-        <div class="disclaimer">
-            <h4>Disclaimers & Notes</h4>
-            <ul>
-                <li>Please excuse the code quality. This was built almost entirely by <a href="https://cursor.sh/" target="_blank">Cursor AI</a></li>
-                <li>All imported rows are counted in totals (sends, attempts, etc.) and all pitches for length</li>
-                <li>Map locations are wonky and some areas might not work</li>
-                <li>Code on <a href="https://github.com/bheidkamp3/bheidkamp3.github.io" target="_blank">github</a></li>
-                <li>Be safe, climb stuff, have fun! 🧗‍♂️</li>
-            </ul>
+        <div class="intel-quote" style="margin-top:14px;">
+          "Had she lived to today, she would be 128 years old. She did not. But she lived far longer &mdash; and far differently &mdash; than the official record suggests."
+          <span class="source">&mdash; Case summary notation &nbsp;|&nbsp; Author: <span class="redact redact-wide" style="vertical-align:middle;"></span></span>
         </div>
-    </div>
+      </div>
 
-    <script src="app.js"></script>
+      <div class="doc-footer">
+        <span>TOP SECRET // NOFORN // EYES ONLY</span>
+        <span class="dim">FINAL CASE ENTRY &mdash; SUBJECT EARHART, A.M. &mdash; CASE STATUS: OPEN</span>
+      </div>
+
+      <aside class="notes">
+        She outlived everyone who knew her secret. She died in the country that captured her, 57 years after the United States government told the world she was gone. Let the 55-year discrepancy sit with the room.
+      </aside>
+    </section>
+
+
+    <!-- ============================================================
+         SLIDE 10 — FINAL
+         ============================================================ -->
+    <section data-background-color="#0e0000">
+      <div class="slide-final">
+        <div class="final-case-status">Case Status</div>
+        <div class="final-main-stamp">FILE REMAINS CLASSIFIED</div>
+
+        <div class="final-divider"></div>
+
+        <div class="final-body-line">Case Status: Open</div>
+        <div class="final-body-line" style="margin-top:4px;">
+          Additional materials withheld per National Security Act (50 U.S.C. &sect; 3024)
+        </div>
+
+        <div class="final-divider"></div>
+
+        <div class="final-contact">
+          For questions, contact:<br/>
+          Office of the Director of National Intelligence<br/>
+          <span class="redact redact-wide" style="background:#400; border-color:#600; min-width:180px;"></span>
+        </div>
+
+        <div class="final-divider"></div>
+
+        <div class="final-tagline">
+          Confidential Debrief Complete.<br/>
+          Thank you for your service, Raquel Zanoni.
+        </div>
+      </div>
+
+      <aside class="notes">
+        No comment needed. Let it sit. Case closed. Or is it?
+      </aside>
+    </section>
+
+  </div><!-- /.slides -->
+</div><!-- /.reveal -->
+
+
+<!-- Reveal.js -->
+<script src="https://cdn.jsdelivr.net/npm/reveal.js@5.1.0/dist/reveal.js"></script>
+<script>
+  Reveal.initialize({
+    hash: true,
+    transition: 'fade',
+    transitionSpeed: 'slow',
+    controls: false,
+    progress: false,
+    center: true,
+    width: 1280,
+    height: 720,
+    margin: 0,
+    minScale: 0.2,
+    maxScale: 2.0,
+  });
+
+  // Lazy-load iframes only when the slide becomes active
+  Reveal.on('slidechanged', function (event) {
+    var iframes = event.currentSlide.querySelectorAll('iframe[data-src]');
+    iframes.forEach(function (iframe) {
+      if (!iframe.getAttribute('src')) {
+        iframe.setAttribute('src', iframe.getAttribute('data-src'));
+      }
+    });
+  });
+</script>
+
 </body>
 </html>
