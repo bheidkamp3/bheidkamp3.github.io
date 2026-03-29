@@ -1096,7 +1096,3 @@
   opacity: 1;
 }
 
-/* Hide Reveal.js navigation controls on desktop */
-@media (min-width: 769px) {
-  .reveal .controls { display: none !important; }
-}
