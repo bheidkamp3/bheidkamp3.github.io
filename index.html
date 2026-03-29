@@ -729,22 +729,25 @@ END INTERCEPT</div>
 <!-- Reveal.js -->
 <script src="https://cdn.jsdelivr.net/npm/reveal.js@5.1.0/dist/reveal.js"></script>
 <script>
+  // On mobile, fill the actual viewport so nothing scales down tiny.
+  // On desktop/TV, use the fixed 1280×720 canvas.
+  var isMobile = window.innerWidth <= 768;
+
   Reveal.initialize({
     hash: true,
     transition: 'fade',
     transitionSpeed: 'slow',
-    controls: true,           // shown on mobile via CSS; hidden on desktop
+    controls: true,           // visible on mobile; hidden on desktop via CSS
     controlsLayout: 'bottom-right',
+    navigationMode: 'linear',
     progress: false,
     center: true,
-    width: 1280,
-    height: 720,
-    margin: 0.04,
-    minScale: 0.1,
-    maxScale: 2.0,
+    width:    isMobile ? window.innerWidth  : 1280,
+    height:   isMobile ? window.innerHeight : 720,
+    margin:   isMobile ? 0    : 0.04,
+    minScale: isMobile ? 1    : 0.2,
+    maxScale: isMobile ? 1    : 2.0,
     touch: true,
-    // Switch to vertical scroll layout on narrow viewports (Reveal.js 5)
-    scrollActivationWidth: 768,
   });
 
   // Lazy-load iframes only when the slide becomes active

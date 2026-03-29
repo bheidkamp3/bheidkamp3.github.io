@@ -1096,47 +1096,54 @@
   opacity: 1;
 }
 
-/* ---- Mobile: scroll layout adjustments ---- */
-/* Reveal.js 5 adds .scroll class to .reveal when in scroll mode */
+/* ---- Mobile layout: fires when slides fill the actual viewport ----
+   With isMobile=true in Reveal config, the canvas IS the viewport,
+   so these media queries match real device widths.                  */
 
 @media (max-width: 768px) {
 
-  /* Tighter padding inside slides */
+  /* Scrollable slides — let content overflow vertically on small screens */
+  .reveal .slides section {
+    height: auto !important;
+    min-height: 100vh;
+    overflow-y: auto !important;
+  }
+
+  /* Tighter padding */
   .slide-inner {
-    padding: 14px 20px 10px !important;
+    padding: 12px 16px 10px !important;
   }
 
   .doc-header,
   .doc-footer {
-    padding: 5px 20px !important;
-    font-size: 9px;
+    padding: 5px 16px !important;
   }
 
   .doc-header span,
   .doc-footer span {
     font-size: 9px !important;
-    letter-spacing: 0.08em;
+    letter-spacing: 0.07em;
   }
 
-  /* Stack two-column layouts */
-  .two-col {
-    grid-template-columns: 1fr !important;
-    gap: 14px;
+  /* Base font slightly larger for readability */
+  .reveal {
+    font-size: 14px !important;
   }
 
-  /* Stack three-panel evidence layout */
-  .three-panels {
-    grid-template-columns: 1fr !important;
-    gap: 10px;
+  /* Section title */
+  .section-title {
+    font-size: 1.1em !important;
+    line-height: 1.2;
   }
 
-  /* Stack video cards */
-  .video-container {
-    grid-template-columns: 1fr !important;
-    gap: 12px;
+  .meta-line {
+    font-size: 0.55em !important;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
   }
 
-  /* Title slide: single column, hide photo */
+  /* ---- Title slide ---- */
   .title-slide-inner {
     grid-template-columns: 1fr !important;
   }
@@ -1145,55 +1152,16 @@
     display: none !important;
   }
 
+  .title-content {
+    padding: 16px !important;
+  }
+
   .title-main {
-    font-size: 1.8em !important;
+    font-size: 2em !important;
   }
 
   .title-sub {
-    font-size: 0.65em !important;
-  }
-
-  /* Evidence column: horizontal on mobile */
-  .evidence-col {
-    flex-direction: row !important;
-    gap: 10px;
-  }
-
-  /* Capture event: single column */
-  .capture-event-line {
-    grid-template-columns: 1fr !important;
-    gap: 2px;
-  }
-
-  .capture-event-label {
-    font-size: 0.75em;
-    margin-bottom: 2px;
-  }
-
-  /* Dossier fields: single column */
-  .dossier-field {
-    grid-template-columns: 1fr !important;
-    gap: 1px;
-  }
-
-  /* OSS memo: smaller font */
-  .oss-memo {
     font-size: 0.68em !important;
-    padding: 14px 16px 40px !important;
-  }
-
-  .oss-memo-meta {
-    grid-template-columns: 80px 1fr !important;
-  }
-
-  /* Section title */
-  .section-title {
-    font-size: 1.05em !important;
-  }
-
-  /* Smaller stamps */
-  .stamp-lg {
-    font-size: 1.1em !important;
   }
 
   .title-stamps {
@@ -1201,20 +1169,78 @@
     gap: 10px;
   }
 
-  /* Final slide adjustments */
-  .final-main-stamp {
-    font-size: 1.6em !important;
-    padding: 8px 18px !important;
+  .stamp-lg {
+    font-size: 1.2em !important;
   }
 
-  .slide-final {
-    padding: 30px 28px !important;
+  /* ---- Two-column layouts → single column ---- */
+  .two-col {
+    grid-template-columns: 1fr !important;
+    gap: 12px;
   }
 
-  /* ID report */
+  .photo-frame img {
+    height: 200px !important;
+  }
+
+  /* ---- Dossier fields → stacked ---- */
+  .dossier-field {
+    grid-template-columns: 1fr !important;
+    gap: 1px;
+    padding: 4px 0;
+  }
+
+  .dossier-label {
+    font-size: 0.7em !important;
+  }
+
+  /* ---- Three-panel evidence → single column ---- */
+  .three-panels {
+    grid-template-columns: 1fr !important;
+    gap: 10px;
+  }
+
+  /* ---- Video cards → single column ---- */
+  .video-container {
+    grid-template-columns: 1fr !important;
+    gap: 10px;
+  }
+
+  .video-embed-area {
+    min-height: 200px;
+  }
+
+  /* ---- OSS memo ---- */
+  .oss-memo {
+    font-size: 0.7em !important;
+    padding: 14px 14px 44px !important;
+  }
+
+  .oss-memo-meta {
+    grid-template-columns: 80px 1fr !important;
+    font-size: 0.82em;
+  }
+
+  .oss-memo-header {
+    font-size: 0.85em !important;
+  }
+
+  /* ---- Capture event timeline → stacked ---- */
+  .capture-event-line {
+    grid-template-columns: 1fr !important;
+    gap: 2px;
+  }
+
+  .capture-event-label {
+    font-size: 0.72em;
+    margin-bottom: 1px;
+  }
+
+  /* ---- ID report ---- */
   .id-report {
     max-width: 100% !important;
-    font-size: 0.68em !important;
+    font-size: 0.7em !important;
+    margin-top: 10px;
   }
 
   .id-field {
@@ -1222,8 +1248,57 @@
     gap: 1px;
   }
 
-  /* Video card height on mobile */
-  .video-embed-area {
-    min-height: 180px;
+  /* ---- Evidence photos → side by side ---- */
+  .evidence-col {
+    flex-direction: row !important;
+    gap: 8px;
+  }
+
+  /* Slide 9: evidence grid → stack photo col below dossier */
+  .slide-inner > div[style*="grid-template-columns:1fr 280px"] {
+    grid-template-columns: 1fr !important;
+  }
+
+  /* ---- Final slide ---- */
+  .slide-final {
+    padding: 24px 20px !important;
+    min-height: 100vh;
+    height: auto !important;
+    box-sizing: border-box;
+  }
+
+  .final-main-stamp {
+    font-size: 1.5em !important;
+    padding: 8px 14px !important;
+  }
+
+  .final-case-status {
+    font-size: 0.85em !important;
+  }
+
+  .final-tagline {
+    font-size: 0.85em !important;
+  }
+
+  .final-body-line {
+    font-size: 0.62em !important;
+  }
+
+  .final-divider {
+    width: 240px;
+  }
+
+  /* ---- Record / bullet lists ---- */
+  .record-list,
+  .bullet-list {
+    font-size: 0.78em !important;
+  }
+
+  .intel-quote {
+    font-size: 0.75em !important;
+  }
+
+  .conclusion {
+    font-size: 0.75em !important;
   }
 }
