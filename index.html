@@ -729,24 +729,24 @@ END INTERCEPT</div>
 <!-- Reveal.js -->
 <script src="https://cdn.jsdelivr.net/npm/reveal.js@5.1.0/dist/reveal.js"></script>
 <script>
-  // On mobile, fill the actual viewport so nothing scales down tiny.
-  // On desktop/TV, use the fixed 1280×720 canvas.
+  // Mobile: portrait phone canvas (390×844) — scales to fit any phone.
+  // Desktop/TV: standard 1280×720 landscape.
   var isMobile = window.innerWidth <= 768;
 
   Reveal.initialize({
     hash: true,
     transition: 'fade',
     transitionSpeed: 'slow',
-    controls: true,           // visible on mobile; hidden on desktop via CSS
+    controls: true,
     controlsLayout: 'bottom-right',
     navigationMode: 'linear',
     progress: false,
-    center: true,
-    width:    isMobile ? window.innerWidth  : 1280,
-    height:   isMobile ? window.innerHeight : 720,
-    margin:   isMobile ? 0    : 0.04,
-    minScale: isMobile ? 1    : 0.2,
-    maxScale: isMobile ? 1    : 2.0,
+    center: false,
+    width:    isMobile ? 390  : 1280,
+    height:   isMobile ? 844  : 720,
+    margin:   0,
+    minScale: 0.1,
+    maxScale: isMobile ? 1.2 : 2.0,
     touch: true,
   });
 

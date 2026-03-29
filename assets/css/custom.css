@@ -1096,54 +1096,58 @@
   opacity: 1;
 }
 
-/* ---- Mobile layout: fires when slides fill the actual viewport ----
-   With isMobile=true in Reveal config, the canvas IS the viewport,
-   so these media queries match real device widths.                  */
-
+/* ============================================================
+   MOBILE — Portrait phone canvas (390×844)
+   Everything single-column, portrait-friendly.
+   ============================================================ */
 @media (max-width: 768px) {
 
-  /* Scrollable slides — let content overflow vertically on small screens */
+  /* Allow slides to scroll if content is taller than the canvas */
   .reveal .slides section {
     height: auto !important;
-    min-height: 100vh;
+    min-height: 844px;
     overflow-y: auto !important;
+    box-sizing: border-box;
   }
 
-  /* Tighter padding */
-  .slide-inner {
-    padding: 12px 16px 10px !important;
+  /* Base font */
+  .reveal {
+    font-size: 15px !important;
   }
 
+  /* Header / footer — slim, single line */
   .doc-header,
   .doc-footer {
-    padding: 5px 16px !important;
+    padding: 5px 14px !important;
+    flex-wrap: wrap;
+    gap: 2px;
   }
 
   .doc-header span,
   .doc-footer span {
-    font-size: 9px !important;
-    letter-spacing: 0.07em;
+    font-size: 8.5px !important;
+    letter-spacing: 0.06em;
   }
 
-  /* Base font slightly larger for readability */
-  .reveal {
-    font-size: 14px !important;
+  /* Slide inner */
+  .slide-inner {
+    padding: 14px 14px 12px !important;
   }
 
   /* Section title */
   .section-title {
-    font-size: 1.1em !important;
+    font-size: 1.05em !important;
     line-height: 1.2;
   }
 
   .meta-line {
-    font-size: 0.55em !important;
-    white-space: nowrap;
+    font-size: 0.54em !important;
     overflow: hidden;
     text-overflow: ellipsis;
+    white-space: nowrap;
   }
 
-  /* ---- Title slide ---- */
+  /* ---- TITLE SLIDE ---- */
   .title-slide-inner {
     grid-template-columns: 1fr !important;
   }
@@ -1153,93 +1157,128 @@
   }
 
   .title-content {
-    padding: 16px !important;
+    padding: 20px 14px !important;
+    justify-content: flex-start !important;
   }
 
   .title-main {
-    font-size: 2em !important;
+    font-size: 2.1em !important;
+    line-height: 1.05;
   }
 
   .title-sub {
-    font-size: 0.68em !important;
+    font-size: 0.66em !important;
+    margin-bottom: 12px;
   }
 
   .title-stamps {
     flex-wrap: wrap;
     gap: 10px;
+    margin: 10px 0;
   }
 
   .stamp-lg {
-    font-size: 1.2em !important;
+    font-size: 1.1em !important;
+    border-width: 3px !important;
   }
 
-  /* ---- Two-column layouts → single column ---- */
+  .title-ref {
+    font-size: 0.58em !important;
+    line-height: 1.8;
+  }
+
+  .title-date {
+    font-size: 0.85em !important;
+  }
+
+  /* ---- TWO-COLUMN → SINGLE ---- */
   .two-col {
     grid-template-columns: 1fr !important;
-    gap: 12px;
+    gap: 10px;
   }
 
   .photo-frame img {
-    height: 200px !important;
+    height: 180px !important;
   }
 
-  /* ---- Dossier fields → stacked ---- */
+  /* ---- DOSSIER FIELDS → STACKED ---- */
+  .dossier {
+    font-size: 0.8em !important;
+  }
+
   .dossier-field {
     grid-template-columns: 1fr !important;
     gap: 1px;
-    padding: 4px 0;
+    padding: 5px 0;
   }
 
   .dossier-label {
-    font-size: 0.7em !important;
+    font-size: 0.68em !important;
+    margin-bottom: 1px;
   }
 
-  /* ---- Three-panel evidence → single column ---- */
+  /* ---- THREE-PANEL EVIDENCE → SINGLE COLUMN ---- */
   .three-panels {
     grid-template-columns: 1fr !important;
     gap: 10px;
   }
 
-  /* ---- Video cards → single column ---- */
+  .doc-panel {
+    font-size: 0.82em !important;
+  }
+
+  .transmission {
+    font-size: 0.9em !important;
+  }
+
+  /* ---- VIDEO → SINGLE COLUMN ---- */
   .video-container {
     grid-template-columns: 1fr !important;
     gap: 10px;
   }
 
   .video-embed-area {
-    min-height: 200px;
+    min-height: 195px;
   }
 
-  /* ---- OSS memo ---- */
+  /* ---- OSS MEMO ---- */
   .oss-memo {
-    font-size: 0.7em !important;
-    padding: 14px 14px 44px !important;
-  }
-
-  .oss-memo-meta {
-    grid-template-columns: 80px 1fr !important;
-    font-size: 0.82em;
+    font-size: 0.72em !important;
+    padding: 14px 13px 44px !important;
   }
 
   .oss-memo-header {
-    font-size: 0.85em !important;
+    font-size: 0.88em !important;
   }
 
-  /* ---- Capture event timeline → stacked ---- */
+  .oss-memo-meta {
+    grid-template-columns: 75px 1fr !important;
+    font-size: 0.85em;
+  }
+
+  .stamp-watermark {
+    font-size: 3.5em !important;
+  }
+
+  /* ---- CAPTURE TIMELINE → STACKED ---- */
+  .capture-event {
+    font-size: 0.82em !important;
+  }
+
   .capture-event-line {
     grid-template-columns: 1fr !important;
     gap: 2px;
   }
 
   .capture-event-label {
-    font-size: 0.72em;
-    margin-bottom: 1px;
+    font-size: 0.75em;
+    margin-bottom: 2px;
   }
 
-  /* ---- ID report ---- */
+  /* ---- ID REPORT ---- */
   .id-report {
     max-width: 100% !important;
-    font-size: 0.7em !important;
+    font-size: 0.72em !important;
     margin-top: 10px;
   }
 
@@ -1248,57 +1287,74 @@
     gap: 1px;
   }
 
-  /* ---- Evidence photos → side by side ---- */
-  .evidence-col {
-    flex-direction: row !important;
-    gap: 8px;
-  }
-
-  /* Slide 9: evidence grid → stack photo col below dossier */
-  .slide-inner > div[style*="grid-template-columns:1fr 280px"] {
+  /* ---- SLIDE 9 EVIDENCE GRID → STACKED ---- */
+  .slide-inner > div[style*="280px"] {
     grid-template-columns: 1fr !important;
   }
 
-  /* ---- Final slide ---- */
-  .slide-final {
-    padding: 24px 20px !important;
-    min-height: 100vh;
-    height: auto !important;
-    box-sizing: border-box;
+  .evidence-col {
+    flex-direction: row !important;
+    gap: 8px;
+    height: 220px;
   }
 
-  .final-main-stamp {
-    font-size: 1.5em !important;
-    padding: 8px 14px !important;
-  }
-
-  .final-case-status {
-    font-size: 0.85em !important;
-  }
-
-  .final-tagline {
-    font-size: 0.85em !important;
-  }
-
-  .final-body-line {
-    font-size: 0.62em !important;
-  }
-
-  .final-divider {
-    width: 240px;
-  }
-
-  /* ---- Record / bullet lists ---- */
+  /* ---- RECORD / BULLET LISTS ---- */
   .record-list,
   .bullet-list {
-    font-size: 0.78em !important;
+    font-size: 0.8em !important;
+  }
+
+  .record-list li,
+  .bullet-list li {
+    padding-top: 5px;
+    padding-bottom: 5px;
   }
 
   .intel-quote {
-    font-size: 0.75em !important;
+    font-size: 0.76em !important;
+    padding: 6px 12px;
   }
 
   .conclusion {
-    font-size: 0.75em !important;
+    font-size: 0.76em !important;
+    padding: 8px 12px;
+  }
+
+  /* ---- FINAL SLIDE ---- */
+  .slide-final {
+    padding: 30px 20px !important;
+    min-height: 844px;
+    height: auto !important;
+    justify-content: center !important;
+  }
+
+  .final-main-stamp {
+    font-size: 1.55em !important;
+    padding: 8px 16px !important;
+    border-width: 3px !important;
+  }
+
+  .final-case-status {
+    font-size: 0.82em !important;
+    letter-spacing: 0.2em;
+  }
+
+  .final-tagline {
+    font-size: 0.82em !important;
+    letter-spacing: 0.14em;
+  }
+
+  .final-body-line {
+    font-size: 0.6em !important;
+    letter-spacing: 0.12em;
+  }
+
+  .final-contact {
+    font-size: 0.58em !important;
+  }
+
+  .final-divider {
+    width: 220px;
+    margin: 12px auto;
   }
 }
