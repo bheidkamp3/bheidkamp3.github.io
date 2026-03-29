@@ -1070,3 +1070,160 @@
   font-size: 0.85em;
   color: var(--red);
 }
+
+/* ============================================================
+   MOBILE / RESPONSIVE
+   ============================================================ */
+
+/* Hide Reveal.js navigation arrows on desktop — they're for mobile only */
+@media (min-width: 769px) {
+  .reveal .controls { display: none !important; }
+}
+
+/* Style controls to match the classified theme */
+.reveal .controls {
+  color: var(--red) !important;
+  bottom: 16px !important;
+  right: 16px !important;
+}
+
+.reveal .controls .controls-arrow {
+  color: var(--red) !important;
+  opacity: 0.7;
+}
+
+.reveal .controls .controls-arrow:hover {
+  opacity: 1;
+}
+
+/* ---- Mobile: scroll layout adjustments ---- */
+/* Reveal.js 5 adds .scroll class to .reveal when in scroll mode */
+
+@media (max-width: 768px) {
+
+  /* Tighter padding inside slides */
+  .slide-inner {
+    padding: 14px 20px 10px !important;
+  }
+
+  .doc-header,
+  .doc-footer {
+    padding: 5px 20px !important;
+    font-size: 9px;
+  }
+
+  .doc-header span,
+  .doc-footer span {
+    font-size: 9px !important;
+    letter-spacing: 0.08em;
+  }
+
+  /* Stack two-column layouts */
+  .two-col {
+    grid-template-columns: 1fr !important;
+    gap: 14px;
+  }
+
+  /* Stack three-panel evidence layout */
+  .three-panels {
+    grid-template-columns: 1fr !important;
+    gap: 10px;
+  }
+
+  /* Stack video cards */
+  .video-container {
+    grid-template-columns: 1fr !important;
+    gap: 12px;
+  }
+
+  /* Title slide: single column, hide photo */
+  .title-slide-inner {
+    grid-template-columns: 1fr !important;
+  }
+
+  .title-photo-col {
+    display: none !important;
+  }
+
+  .title-main {
+    font-size: 1.8em !important;
+  }
+
+  .title-sub {
+    font-size: 0.65em !important;
+  }
+
+  /* Evidence column: horizontal on mobile */
+  .evidence-col {
+    flex-direction: row !important;
+    gap: 10px;
+  }
+
+  /* Capture event: single column */
+  .capture-event-line {
+    grid-template-columns: 1fr !important;
+    gap: 2px;
+  }
+
+  .capture-event-label {
+    font-size: 0.75em;
+    margin-bottom: 2px;
+  }
+
+  /* Dossier fields: single column */
+  .dossier-field {
+    grid-template-columns: 1fr !important;
+    gap: 1px;
+  }
+
+  /* OSS memo: smaller font */
+  .oss-memo {
+    font-size: 0.68em !important;
+    padding: 14px 16px 40px !important;
+  }
+
+  .oss-memo-meta {
+    grid-template-columns: 80px 1fr !important;
+  }
+
+  /* Section title */
+  .section-title {
+    font-size: 1.05em !important;
+  }
+
+  /* Smaller stamps */
+  .stamp-lg {
+    font-size: 1.1em !important;
+  }
+
+  .title-stamps {
+    flex-wrap: wrap;
+    gap: 10px;
+  }
+
+  /* Final slide adjustments */
+  .final-main-stamp {
+    font-size: 1.6em !important;
+    padding: 8px 18px !important;
+  }
+
+  .slide-final {
+    padding: 30px 28px !important;
+  }
+
+  /* ID report */
+  .id-report {
+    max-width: 100% !important;
+    font-size: 0.68em !important;
+  }
+
+  .id-field {
+    grid-template-columns: 1fr !important;
+    gap: 1px;
+  }
+
+  /* Video card height on mobile */
+  .video-embed-area {
+    min-height: 180px;
+  }
+}
